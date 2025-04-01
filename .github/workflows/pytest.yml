@@ -1,0 +1,13 @@
+name: Run pytest
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    container: python:3.11
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - run: pip install -r requirements.txt
+    
+    - run: python -m pytest -W ignore::DeprecationWarning
